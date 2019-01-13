@@ -1,0 +1,133 @@
+2019-01-13 17:38:10 INFO   main ClassPathXmlApplicationContext:581 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@34c4973: startup date [Sun Jan 13 17:38:10 CST 2019]; root of context hierarchy
+2019-01-13 17:39:23 INFO   main ClassPathXmlApplicationContext:581 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@34c4973: startup date [Sun Jan 13 17:39:23 CST 2019]; root of context hierarchy
+2019-01-13 17:39:23 INFO   main SpringCamel:26 - 初始化.....org.springframework.context.support.ClassPathXmlApplicationContext@34c4973: startup date [Sun Jan 13 17:39:23 CST 2019]; root of context hierarchy
+2019-01-13 21:50:58 INFO   main ClassPathXmlApplicationContext:581 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@34c4973: startup date [Sun Jan 13 21:50:58 CST 2019]; root of context hierarchy
+2019-01-13 21:50:58 INFO   main SpringCamel:27 - 初始化.....org.springframework.context.support.ClassPathXmlApplicationContext@34c4973: startup date [Sun Jan 13 21:50:58 CST 2019]; root of context hierarchy
+2019-01-13 21:51:37 INFO   main ClassPathXmlApplicationContext:581 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@34c4973: startup date [Sun Jan 13 21:51:37 CST 2019]; root of context hierarchy
+2019-01-13 21:51:37 INFO   main SpringCamel:27 - 初始化.....org.springframework.context.support.ClassPathXmlApplicationContext@34c4973: startup date [Sun Jan 13 21:51:37 CST 2019]; root of context hierarchy
+2019-01-13 21:52:03 INFO   main ClassPathXmlApplicationContext:581 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@34c4973: startup date [Sun Jan 13 21:52:03 CST 2019]; root of context hierarchy
+2019-01-13 21:52:03 INFO   main SpringCamel:27 - 初始化.....org.springframework.context.support.ClassPathXmlApplicationContext@34c4973: startup date [Sun Jan 13 21:52:03 CST 2019]; root of context hierarchy
+2019-01-13 21:59:45 INFO   main ClassPathXmlApplicationContext:581 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@34c4973: startup date [Sun Jan 13 21:59:45 CST 2019]; root of context hierarchy
+2019-01-13 21:59:45 INFO   main SpringCamel:26 - 初始化.....org.springframework.context.support.ClassPathXmlApplicationContext@34c4973: startup date [Sun Jan 13 21:59:45 CST 2019]; root of context hierarchy
+2019-01-13 22:04:46 INFO   main ClassPathXmlApplicationContext:581 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@480bdb19: startup date [Sun Jan 13 22:04:46 CST 2019]; root of context hierarchy
+2019-01-13 22:04:46 INFO   main SpringCamel:34 - 初始化.....org.springframework.context.support.ClassPathXmlApplicationContext@480bdb19: startup date [Sun Jan 13 22:04:46 CST 2019]; root of context hierarchy
+2019-01-13 22:04:46 INFO   main SpringCamelContext:3138 - Apache Camel 2.23.0 (CamelContext: camel-1) is starting
+2019-01-13 22:04:46 INFO   main ManagedManagementStrategy:205 - JMX is enabled
+2019-01-13 22:04:47 INFO   main DefaultTypeConverter:66 - Type converters loaded (core: 195, classpath: 8)
+2019-01-13 22:04:47 INFO   main SpringCamelContext:3465 - StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+2019-01-13 22:04:47 INFO   main SpringCamelContext:3186 - Total 0 routes, of which 0 are started
+2019-01-13 22:04:47 INFO   main SpringCamelContext:3197 - Apache Camel 2.23.0 (CamelContext: camel-1) started in 0.921 seconds
+2019-01-13 22:08:00 INFO   main ClassPathXmlApplicationContext:581 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@34c4973: startup date [Sun Jan 13 22:08:00 CST 2019]; root of context hierarchy
+2019-01-13 22:08:00 INFO   main SpringCamel:26 - 初始化.....org.springframework.context.support.ClassPathXmlApplicationContext@34c4973: startup date [Sun Jan 13 22:08:00 CST 2019]; root of context hierarchy
+2019-01-13 22:10:26 INFO   main ClassPathXmlApplicationContext:581 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@34c4973: startup date [Sun Jan 13 22:10:26 CST 2019]; root of context hierarchy
+2019-01-13 22:10:27 WARN   main XmlBeanDefinitionReader:48 - Ignored XML validation warning
+org.xml.sax.SAXParseException; lineNumber: 8; columnNumber: 74; SchemaLocation: schemaLocation 值 'http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd         http://camel.apache.org/schema/spring/camel-spring-2.23.0.xsd ' 必须具有偶数个 URI。
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:203)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.warning(ErrorHandlerWrapper.java:99)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:392)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:284)
+	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator$XSIErrorReporter.reportError(XMLSchemaValidator.java:452)
+	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.storeLocations(XMLSchemaValidator.java:2347)
+	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.handleStartElement(XMLSchemaValidator.java:1754)
+	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.startElement(XMLSchemaValidator.java:740)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.scanStartElement(XMLNSDocumentScannerImpl.java:380)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl$NSContentDriver.scanRootElementHook(XMLNSDocumentScannerImpl.java:614)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:3135)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:880)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:606)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:118)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:510)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:848)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:777)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:243)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:339)
+	at org.springframework.beans.factory.xml.DefaultDocumentLoader.loadDocument(DefaultDocumentLoader.java:77)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.doLoadDocument(XmlBeanDefinitionReader.java:434)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.doLoadBeanDefinitions(XmlBeanDefinitionReader.java:392)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:336)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:304)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:188)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:224)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:195)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:257)
+	at org.springframework.context.support.AbstractXmlApplicationContext.loadBeanDefinitions(AbstractXmlApplicationContext.java:127)
+	at org.springframework.context.support.AbstractXmlApplicationContext.loadBeanDefinitions(AbstractXmlApplicationContext.java:93)
+	at org.springframework.context.support.AbstractRefreshableApplicationContext.refreshBeanFactory(AbstractRefreshableApplicationContext.java:129)
+	at org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:612)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:513)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:139)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:83)
+	at demo.chenj.spring.SpringCamel.main(SpringCamel.java:26)
+2019-01-13 22:14:27 INFO   main ClassPathXmlApplicationContext:581 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@34c4973: startup date [Sun Jan 13 22:14:27 CST 2019]; root of context hierarchy
+2019-01-13 22:14:30 WARN   main XmlBeanDefinitionReader:48 - Ignored XML validation warning
+org.xml.sax.SAXParseException; lineNumber: 8; columnNumber: 132; schema_reference.4: 无法读取方案文档 'http://www.springframework.org/schema/beans/spring-beans', 原因为 1) 无法找到文档; 2) 无法读取文档; 3) 文档的根元素不是 <xsd:schema>。
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:203)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.warning(ErrorHandlerWrapper.java:99)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:392)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:306)
+	at com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDHandler.reportSchemaErr(XSDHandler.java:4162)
+	at com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDHandler.reportSchemaWarning(XSDHandler.java:4153)
+	at com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDHandler.getSchemaDocument1(XSDHandler.java:2486)
+	at com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDHandler.getSchemaDocument(XSDHandler.java:2183)
+	at com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDHandler.parseSchema(XSDHandler.java:569)
+	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaLoader.loadSchema(XMLSchemaLoader.java:613)
+	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.findSchemaGrammar(XMLSchemaValidator.java:2446)
+	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.handleStartElement(XMLSchemaValidator.java:1767)
+	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.startElement(XMLSchemaValidator.java:740)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.scanStartElement(XMLNSDocumentScannerImpl.java:380)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl$NSContentDriver.scanRootElementHook(XMLNSDocumentScannerImpl.java:614)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:3135)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:880)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:606)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:118)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:510)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:848)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:777)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:243)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:339)
+	at org.springframework.beans.factory.xml.DefaultDocumentLoader.loadDocument(DefaultDocumentLoader.java:77)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.doLoadDocument(XmlBeanDefinitionReader.java:434)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.doLoadBeanDefinitions(XmlBeanDefinitionReader.java:392)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:336)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:304)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:188)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:224)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:195)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:257)
+	at org.springframework.context.support.AbstractXmlApplicationContext.loadBeanDefinitions(AbstractXmlApplicationContext.java:127)
+	at org.springframework.context.support.AbstractXmlApplicationContext.loadBeanDefinitions(AbstractXmlApplicationContext.java:93)
+	at org.springframework.context.support.AbstractRefreshableApplicationContext.refreshBeanFactory(AbstractRefreshableApplicationContext.java:129)
+	at org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:612)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:513)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:139)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:83)
+	at demo.chenj.spring.SpringCamel.main(SpringCamel.java:26)
+Caused by: java.io.FileNotFoundException: http://www.springframework.org/schema/beans/spring-beans
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1836)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1441)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityManager.setupCurrentEntity(XMLEntityManager.java:647)
+	at com.sun.org.apache.xerces.internal.impl.XMLVersionDetector.determineDocVersion(XMLVersionDetector.java:189)
+	at com.sun.org.apache.xerces.internal.impl.xs.opti.SchemaParsingConfig.parse(SchemaParsingConfig.java:582)
+	at com.sun.org.apache.xerces.internal.impl.xs.opti.SchemaParsingConfig.parse(SchemaParsingConfig.java:685)
+	at com.sun.org.apache.xerces.internal.impl.xs.opti.SchemaDOMParser.parse(SchemaDOMParser.java:530)
+	at com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDHandler.getSchemaDocument(XSDHandler.java:2171)
+	... 34 more
+2019-01-13 22:16:23 INFO   main ClassPathXmlApplicationContext:581 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@34c4973: startup date [Sun Jan 13 22:16:23 CST 2019]; root of context hierarchy
+2019-01-13 22:19:26 INFO   main ClassPathXmlApplicationContext:581 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@34c4973: startup date [Sun Jan 13 22:19:26 CST 2019]; root of context hierarchy
+2019-01-13 22:19:29 INFO   main SpringCamelContext:3138 - Apache Camel 2.23.0 (CamelContext: xmlCamelContext) is starting
+2019-01-13 22:19:29 INFO   main ManagedManagementStrategy:205 - JMX is enabled
+2019-01-13 22:19:29 INFO   main DefaultTypeConverter:66 - Type converters loaded (core: 195, classpath: 8)
+2019-01-13 22:19:30 INFO   main SpringCamelContext:3465 - StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+2019-01-13 22:19:30 INFO   main log:193 - Logging initialized @4214ms to org.eclipse.jetty.util.log.Slf4jLog
+2019-01-13 22:19:30 INFO   main Server:371 - jetty-9.4.12.v20180830; built: 2018-08-30T13:59:14.071Z; git: 27208684755d94a92186989f695db2d7b21ebc51; jvm 1.8.0_74-b02
+2019-01-13 22:19:30 INFO   main ContextHandler:850 - Started o.e.j.s.ServletContextHandler@19382338{/,null,AVAILABLE}
+2019-01-13 22:19:30 INFO   main AbstractConnector:292 - Started ServerConnector@72825400{HTTP/1.1,[http/1.1]}{0.0.0.0:8282}
+2019-01-13 22:19:30 INFO   main Server:408 - Started @4448ms
+2019-01-13 22:19:30 INFO   main SpringCamelContext:4034 - Route: route1 started and consuming from: jetty:http://0.0.0.0:8282/directCamel
+2019-01-13 22:19:30 INFO   main SpringCamelContext:3186 - Total 1 routes, of which 1 are started
+2019-01-13 22:19:30 INFO   main SpringCamelContext:3197 - Apache Camel 2.23.0 (CamelContext: xmlCamelContext) started in 0.818 seconds
+2019-01-13 22:19:30 INFO   main SpringCamel:27 - 初始化.....org.springframework.context.support.ClassPathXmlApplicationContext@34c4973: startup date [Sun Jan 13 22:19:26 CST 2019]; root of context hierarchy
+2019-01-13 22:19:36 INFO   qtp52354732-22 helloworld2:159 - Exchange[Id: ID-chenjdeMacBook-Pro-local-1547389169360-0-1, ExchangePattern: InOut, BodyType: org.apache.camel.converter.stream.InputStreamCache, Body: [Body is instance of org.apache.camel.StreamCache]]
