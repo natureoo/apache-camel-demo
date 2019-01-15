@@ -9,7 +9,7 @@ import java.util.List;
 public class StringUtil {
 
     public static  void main(String[] args){
-        List<String> list = new ArrayList<>();
+        List<String> list = new ArrayList<String>();
         list.add("http://localhost:8081/camel/post?bridgeEndpoint=true");
         list.add("http://localhost:8082/camel/post?bridgeEndpoint=true");
         String [] arrays = list.toArray(new String[0]);

@@ -12,6 +12,7 @@
         <endpoint id="log_to2" uri="jetty:http://localhost:8082/camel/post"/>
         <!--<route errorHandlerRef="myErrorHandler">-->
         <route >
+
             <from ref="jetty_from"/>
             <process ref="httpProcesser"></process>
             <setHeader headerName="CamelHttpMethod">
@@ -21,14 +22,27 @@
                 <simple>application/json</simple>
             </setHeader>
 
-
-                <loadBalance><failover> </failover>
+            <onException>
+                <exception>java.io.IOException</exception>
+                <continued><constant>true</constant></continued>
+            </onException>
+                <loadBalance>
+                    <custom ref="myBalancer"></custom>
                     <to ref="log_to1"/> <to ref="log_to2"/>
                 </loadBalance>
-            <process ref="otherProcesser"></process>
+            <to uri="log:directRouteA?showExchangeId=true"></to>
+            <to  uri="direct:directRouteB"></to>
+            <!--<process ref="otherProcesser"></process>-->
         </route>
+        <route>
+            <from uri="direct:directRouteB"></from>
+            <process ref="otherProcesser"></process>
+            <to uri="log:directRouteB?showExchangeId=true"></to>
+        </route>
+
     </camelContext>
 
+    <bean id='myBalancer' class='demo.chenj.failover.CustomLoadBalance' />
 
     <bean id="httpProcesser" class="demo.chenj.processer.HttpProcessor"></bean>
     <bean id="otherProcesser" class="demo.chenj.processer.OtherProcessor"></bean>

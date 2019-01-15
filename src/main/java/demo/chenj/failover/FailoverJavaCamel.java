@@ -33,7 +33,7 @@ public class FailoverJavaCamel extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
-        List<String> list = new ArrayList<>();
+        List<String> list = new ArrayList<String>();
         list.add("http://localhost:8081/camel/post?bridgeEndpoint=true");
         list.add("http://localhost:8082/camel/post?bridgeEndpoint=true");
         errorHandler(defaultErrorHandler()  .onExceptionOccurred(new ExceptionProcessor()));
@@ -43,7 +43,7 @@ public class FailoverJavaCamel extends RouteBuilder {
                 .process(new HttpProcessor())
                 .setHeader(Exchange.HTTP_METHOD, constant("POST"))
                 .setHeader(Exchange.CONTENT_TYPE, constant("application/json"))
-                .loadBalance().failover(1, true, false)
+                .loadBalance().failover(3, true, false)
 //                .to("http://localhost:8081/camel/post?bridgeEndpoint=true").
 //                to("http://localhost:8082/camel/post?bridgeEndpoint=true")
                 .to((String[])list.toArray(new String[0]))

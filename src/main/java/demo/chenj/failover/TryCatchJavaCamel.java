@@ -3,17 +3,19 @@ package demo.chenj.failover;
 import demo.chenj.processer.ExceptionProcessor;
 import demo.chenj.processer.HttpProcessor;
 import demo.chenj.processer.OtherProcessor;
+import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.model.ModelCamelContext;
+import org.apache.camel.model.ProcessorDefinition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
+
 
 public class TryCatchJavaCamel extends RouteBuilder {
 
@@ -40,15 +42,19 @@ public class TryCatchJavaCamel extends RouteBuilder {
 
 
         from("jetty:http://0.0.0.0:8282/httpCamel")
+                .routeId("myRoute1")
                 .process(new HttpProcessor())
                 .setHeader(Exchange.HTTP_METHOD, constant("POST"))
                 .setHeader(Exchange.CONTENT_TYPE, constant("application/json"))
-                .loadBalance().failover(1, true, false)
+                .loadBalance().failover()
                 .doTry()
                 .to("http://localhost:8081/camel/post?bridgeEndpoint=true")
                 .doCatch(IOException.class).process(new Processor() {
                     @Override
                     public void process(Exchange exchange) throws Exception {
+                        exchange.getContext();
+//                        List<ProcessorDefinition<?>> outputProcessorDefs = exchange.getContext().getRouteDefinition("[routeId]").getOutputs();
+
                         LOGGER.info("8081 IOException");
                     }
                 })
@@ -57,6 +63,8 @@ public class TryCatchJavaCamel extends RouteBuilder {
                 .doCatch(IOException.class).process(new Processor() {
                     @Override
                     public void process(Exchange exchange) throws Exception {
+                        List<ProcessorDefinition<?>> outputProcessorDefs = exchange.getContext().getRouteDefinition("[routeId]").getOutputs();
+
                         LOGGER.info("8082 IOException");
                     }
                 })
