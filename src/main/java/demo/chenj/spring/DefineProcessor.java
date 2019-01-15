@@ -14,9 +14,7 @@ import org.springframework.stereotype.Component;
  */
 @Component("defineProcessor")
 public class DefineProcessor implements Processor {
-    /**
-     * 日志
-     */
+
     private static Logger LOGGER = LoggerFactory.getLogger(DefineProcessor.class);
 
     @Autowired

@@ -21,10 +21,6 @@ public class DirectCamel {
         }
     }
 
-    /**
-     * DirectRouteA 其中使用direct 连接到 DirectRouteB
-     * @author yinwenjie
-     */
     public class DirectRouteA extends RouteBuilder {
 
         /* (non-Javadoc)
@@ -39,9 +35,7 @@ public class DirectCamel {
         }
     }
 
-    /**
-     * @author yinwenjie
-     */
+
     public class DirectRouteB extends RouteBuilder {
         /* (non-Javadoc)
          * @see org.apache.camel.builder.RouteBuilder#configure()

@@ -1,5 +1,6 @@
 package demo.chenj;
 
+import demo.chenj.processer.StringUtil;
 import org.apache.camel.Exchange;
 import org.apache.camel.ExchangePattern;
 import org.apache.camel.Message;
@@ -27,14 +28,6 @@ public class HelloWorld extends RouteBuilder {
         // 将我们编排的一个完整消息路由过程，加入到上下文中
         camelContext.addRoutes(new HelloWorld());
 
-        /*
-         * ==========================
-         * 为什么我们先启动一个Camel服务
-         * 再使用addRoutes添加编排好的路由呢？
-         * 这是为了告诉各位读者，Apache Camel支持动态加载/卸载编排的路由
-         * 这很重要，因为后续设计的Broker需要依赖这种能力
-         * ==========================
-         * */
 
         // 通用没有具体业务意义的代码，只是为了保证主线程不退出
         synchronized (HelloWorld.class) {
@@ -50,10 +43,6 @@ public class HelloWorld extends RouteBuilder {
                 .to("log:demo.chenj.HelloWorld?showExchangeId=true");//log:匹配logger
     }
 
-    /**
-     * 这个处理器用来完成输入的json格式的转换
-     * @author yinwenjie
-     */
     public class HttpProcessor implements Processor {
 
         /* (non-Javadoc)
@@ -65,7 +54,7 @@ public class HelloWorld extends RouteBuilder {
             // 否则还是建议使用org.apache.camel.Message这个抽象接口
             HttpMessage message = (HttpMessage)exchange.getIn();
             InputStream bodyStream =  (InputStream)message.getBody();
-            String inputContext = this.analysisMessage(bodyStream);
+            String inputContext = StringUtil.analysisMessage(bodyStream);
             bodyStream.close();
 
             // 存入到exchange的out区域
@@ -75,25 +64,5 @@ public class HelloWorld extends RouteBuilder {
             }
         }
 
-        /**
-         * 从stream中分析字符串内容
-         * @param bodyStream
-         * @return
-         */
-        private String analysisMessage(InputStream bodyStream) throws IOException {
-            ByteArrayOutputStream outStream = new ByteArrayOutputStream();
-            byte[] contextBytes = new byte[4096];
-            int realLen;
-            while((realLen = bodyStream.read(contextBytes , 0 ,4096)) != -1) {
-                outStream.write(contextBytes, 0, realLen);
-            }
-
-            // 返回从Stream中读取的字串
-            try {
-                return new String(outStream.toByteArray() , "UTF-8");
-            } finally {
-                outStream.close();
-            }
-        }
     }
 }

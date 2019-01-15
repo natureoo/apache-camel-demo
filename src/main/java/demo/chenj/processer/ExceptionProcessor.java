@@ -26,13 +26,5 @@ public class ExceptionProcessor implements Processor {
         LOGGER.info("Exception:"+exchange.getException());
     }
 
-    private void prepareExchangeForFailover(Exchange exchange) {
-        exchange.setException(null);
 
-        exchange.setProperty(Exchange.ERRORHANDLER_HANDLED, null);
-        exchange.setProperty(Exchange.FAILURE_HANDLED, null);
-        exchange.setProperty(Exchange.EXCEPTION_CAUGHT, null);
-        exchange.getIn().removeHeader(Exchange.REDELIVERED);
-        exchange.getIn().removeHeader(Exchange.REDELIVERY_COUNTER);
-    }
 }

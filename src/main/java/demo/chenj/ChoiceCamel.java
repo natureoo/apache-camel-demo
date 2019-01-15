@@ -59,20 +59,8 @@ public class ChoiceCamel extends RouteBuilder {
                 .endChoice();
     }
 
-    /**
-     * 这个处理器用来完成输入的json格式的转换
-     * 和上一篇文章出现的HttpProcessor 内容基本一致。就不再贴出了
-     * @author yinwenjie
-     */
-    /**
-     * 这个处理器用来完成输入的json格式的转换
-     * @author yinwenjie
-     */
     public class HttpProcessor implements Processor {
 
-        /* (non-Javadoc)
-         * @see org.apache.camel.Processor#process(org.apache.camel.Exchange)
-         */
         @Override
         public void process(Exchange exchange) throws Exception {
             // 因为很明确消息格式是http的，所以才使用这个类
@@ -111,10 +99,6 @@ public class ChoiceCamel extends RouteBuilder {
         }
     }
 
-    /**
-     * 另一个处理器OtherProcessor
-     * @author yinwenjie
-     */
     public class OtherProcessor implements Processor {
 
         @Override
@@ -130,11 +114,6 @@ public class ChoiceCamel extends RouteBuilder {
         }
     }
 
-    /**
-     * 很简单的处理器OtherProcessor2
-     * 和OtherProcessor基本相同，就不再重复贴出
-     * @author yinwenjie
-     */
     public class OtherProcessor2 implements Processor {
         @Override
         public void process(Exchange exchange) throws Exception {
@@ -149,11 +128,6 @@ public class ChoiceCamel extends RouteBuilder {
         }
     }
 
-    /**
-     * 很简单的处理器OtherProcessor3
-     * 和OtherProcessor基本相同，就不再重复贴出
-     * @author yinwenjie
-     */
     public class OtherProcessor3 implements Processor {
         @Override
         public void process(Exchange exchange) throws Exception {

@@ -56,10 +56,7 @@ public class MulticastCamel extends RouteBuilder {
                 .process(new OtherProcessor());
     }
 
-    /**
-     * 另一个处理器
-     * @author yinwenjie
-     */
+
     public class OtherProcessor implements Processor {
         /* (non-Javadoc)
          * @see org.apache.camel.Processor#process(org.apache.camel.Exchange)

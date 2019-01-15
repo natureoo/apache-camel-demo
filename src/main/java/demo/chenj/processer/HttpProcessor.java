@@ -26,10 +26,5 @@ public class HttpProcessor implements Processor {
         outMessage.setBody("{\"title\": \"The title\", \"content\": \"The content\"}");
     }
 
-    /**
-     * 从stream中分析字符串内容
-     * @param bodyStream
-     * @return
-     */
 
 }
