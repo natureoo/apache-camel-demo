@@ -18,8 +18,6 @@ public class CustomLoadBalance extends SimpleLoadBalancerSupport {
     public void process(Exchange exchange) throws Exception {
         List<Processor> processorsList = getProcessors();
 
-        //选取其中一个调用
-
             LOGGER.info("调用路由1" );
             processorsList.get(0).process(exchange);
 
