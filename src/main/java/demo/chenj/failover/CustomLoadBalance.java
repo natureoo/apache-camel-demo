@@ -15,25 +15,32 @@ public class CustomLoadBalance extends SimpleLoadBalancerSupport {
     private static Logger LOGGER = LoggerFactory.getLogger(FailoverXmlCamel.class);
 
     @Override
-    public void process(Exchange exchange)  {
+    public void process(Exchange exchange) throws Exception {
         List<Processor> processorsList = getProcessors();
 
         //选取其中一个调用
-        try {
+
             LOGGER.info("调用路由1" );
             processorsList.get(0).process(exchange);
-        }catch (Exception e){
-            e.printStackTrace();
-            LOGGER.error("调用路由1:" +e.toString());
-        }
-        LOGGER.info("after调用路由1" );
 
-        try {
-            processorsList.get(1).process(exchange);
-        }catch (Exception e){
-            e.printStackTrace();
-            LOGGER.error("调用路由2:" +e.toString());
+        Exception cause = exchange.getProperty(Exchange.EXCEPTION_CAUGHT, Exception.class);
+        if(cause != null){
+            LOGGER.info("after调用路由1:"+cause );
+            LOGGER.info("发邮件告警" );
+
         }
-        LOGGER.info("after调用路由2" );
+
+
+        exchange.setProperty(Exchange.EXCEPTION_CAUGHT, null);
+        LOGGER.info("调用路由2" );
+        processorsList.get(1).process(exchange);
+        cause = exchange.getProperty(Exchange.EXCEPTION_CAUGHT, Exception.class);
+        if(cause != null){
+            LOGGER.info("after调用路由2:"+cause );
+            LOGGER.info("发邮件告警" );
+
+        }
+
+        LOGGER.info("结束调用" );
     }
 }

@@ -25,6 +25,7 @@
             <onException>
                 <exception>java.io.IOException</exception>
                 <continued><constant>true</constant></continued>
+
             </onException>
                 <loadBalance>
                     <custom ref="myBalancer"></custom>
