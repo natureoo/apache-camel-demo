@@ -6,29 +6,23 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring-2.14.1.xsd ">
+
+    <bean id="myErrorHandler" class="org.apache.camel.builder.DefaultErrorHandlerBuilder">
+        <property name="redeliveryPolicy" ref="myPolicy"/>
+        <property name="onExceptionOccurred" ref="exceptionProcesser"/>
+    </bean>
+    <!-- and let it try to redeliver up till 4 times -->
+    <bean id="myPolicy" class="org.apache.camel.processor.RedeliveryPolicy">
+        <property name="maximumRedeliveries" value="1"/>
+    </bean>
+
     <camelContext  xmlns="http://camel.apache.org/schema/spring">
         <endpoint id="jetty_from" uri="jetty:http://0.0.0.0:8282/httpCamel"/>
         <endpoint id="log_to1" uri="http4://localhost:8081/camel/post"/>
         <endpoint id="log_to2" uri="http4://localhost:8082/camel/post"/>
-        <!--<route errorHandlerRef="myErrorHandler">-->
 
 
-        <!--<onException redeliveryPolicyRef="myRedeliveryPolicy">-->
-            <!--&lt;!&ndash; here we reference our redelivery policy &ndash;&gt;-->
-            <!--&lt;!&ndash; the exception is full qualified names as plain strings &ndash;&gt;-->
-            <!--&lt;!&ndash; there can be more just add a 2nd, 3rd exception element (unbounded) &ndash;&gt;-->
-            <!--<exception>java.io.IOException</exception>-->
-            <!--&lt;!&ndash; mark this as handled &ndash;&gt;-->
-
-            <!--<continued>-->
-                <!--<constant>true</constant>-->
-            <!--</continued>-->
-            <!--&lt;!&ndash; let our order service handle this exception, call the orderFailed method &ndash;&gt;-->
-            <!--<bean ref="orderService" method="orderFailed" />-->
-            <!--&lt;!&ndash; and since this is a unit test we use mock for assertions &ndash;&gt;-->
-        <!--</onException>-->
-
-        <route >
+        <route errorHandlerRef="myErrorHandler">
 
             <from ref="jetty_from"/>
             <process ref="httpProcesser"></process>
@@ -39,42 +33,23 @@
                 <simple>application/json</simple>
             </setHeader>
 
-            <onException>
-                <exception>java.io.IOException</exception>
-                <continued><constant>false</constant></continued>
-                <bean ref="orderService" method="orderFailed" />
-            </onException>
-            <!--<doTry>-->
+            <!--<onException >-->
+                <!--<exception>java.lang.Exception</exception>-->
+            <!--这里设置maximumRedeliveries没起效果-->
+                <!--<redeliveryPolicy maximumRedeliveries="3"/>-->
+                <!--<bean ref="orderService" method="orderFailed" />-->
+            <!--</onException>-->
+
 
                 <loadBalance>
-                    <failover ></failover>
+                    <failover sticky="true"></failover>
                     <!--<custom ref="myBalancer"></custom>-->
 
                     <to ref="log_to1"/>
 
                     <to ref="log_to2"/>
                 </loadBalance>
-                <!--<doCatch>-->
-                    <!--&lt;!&ndash; catch IOExcption that we do not want to handle, eg the caller should get the error back &ndash;&gt;-->
-                    <!--<exception>java.lang.Throwable</exception>-->
-                    <!--&lt;!&ndash; mark this as NOT handled, eg the caller will also get the exception &ndash;&gt;-->
 
-                    <!--&lt;!&ndash;<process ref="exceptionProcesser"></process>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<handled>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<constant>true</constant>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</handled>&ndash;&gt;-->
-                    <!--<to uri="log:Throwable?showExchangeId=true"></to>-->
-                <!--</doCatch>-->
-           <!--</doTry>-->
-
-            <!--<loadBalance>-->
-                <!--<failover ></failover>-->
-                <!--&lt;!&ndash;<custom ref="myBalancer"></custom>&ndash;&gt;-->
-
-                <!--<to ref="log_to1"/>-->
-
-                <!--<to ref="log_to2"/>-->
-            <!--</loadBalance>-->
             <to uri="log:directRouteA?showExchangeId=true"></to>
             <to  uri="direct:directRouteB"></to>
         </route>
@@ -93,9 +68,6 @@
     <bean id="otherProcesser" class="demo.chenj.processer.OtherProcessor"></bean>
     <bean id="exceptionProcesser" class="demo.chenj.processer.ExceptionProcessor"></bean>
     <bean id="orderService" class="demo.chenj.processer.OrderService"></bean>
-    <!--&lt;!&ndash; here we define our redelivery policy using standard spring style &ndash;&gt;-->
-    <!--<bean id="myRedeliveryPolicy" class="org.apache.camel.processor.RedeliveryPolicy">-->
-        <!--<property name="maximumRedeliveries" value="1" />-->
-    <!--</bean>-->
+
 
 </beans>

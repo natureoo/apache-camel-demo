@@ -10,6 +10,7 @@ import org.apache.camel.model.ModelCamelContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,14 +37,26 @@ public class FailoverJavaCamel extends RouteBuilder {
         List<String> list = new ArrayList<String>();
         list.add("http4://localhost:8081/camel/post?bridgeEndpoint=true");
         list.add("http4://localhost:8082/camel/post?bridgeEndpoint=true");
-        errorHandler(defaultErrorHandler()  .onExceptionOccurred(new ExceptionProcessor()));
+//        errorHandler(defaultErrorHandler().maximumRedeliveries(3).onExceptionOccurred(new ExceptionProcessor()));
+//        errorHandler(deadLetterChannel("log:deadLetterChannel?showExchangeId=true") .maximumRedeliveries(2).redeliveryDelay(1000).onExceptionOccurred(new ExceptionProcessor()));
+//
+//        onException(IOException.class)
+//                .continued(true);
 
-
+//        errorHandler(defaultErrorHandler().maximumRedeliveries(4).onExceptionOccurred(new ExceptionProcessor()));
+//        errorHandler(deadLetterChannel("log:deadLetterChannel?showExchangeId=true").maximumRedeliveries(4).onExceptionOccurred(new ExceptionProcessor()));
+        onException(IOException.class)
+                .maximumRedeliveries(1)
+//                .handled(true)
+//                .continued(false)
+                .onExceptionOccurred(new ExceptionProcessor());
         from("jetty:http://0.0.0.0:8282/httpCamel")
                 .process(new HttpProcessor())
                 .setHeader(Exchange.HTTP_METHOD, constant("POST"))
                 .setHeader(Exchange.CONTENT_TYPE, constant("application/json"))
-                .loadBalance().failover(3, true, false)
+                //failover(int maximumFailoverAttempts, boolean inheritErrorHandler, boolean roundRobin, boolean sticky, Class... exceptions
+                .loadBalance().failover(-1, true, true,true,IOException.class)
+
 //                .to("http://localhost:8081/camel/post?bridgeEndpoint=true").
 //                to("http://localhost:8082/camel/post?bridgeEndpoint=true")
                 .to((String[])list.toArray(new String[0]))

@@ -15,8 +15,6 @@ public class ExceptionProcessor implements Processor {
 
     private static Logger LOGGER = LoggerFactory.getLogger(ExceptionProcessor.class);
 
-    private int counter = -1;
-
        @Override
     public void process(Exchange exchange) throws Exception {
              Map<String, Object> properties = exchange.getProperties();
@@ -25,8 +23,8 @@ public class ExceptionProcessor implements Processor {
            Object camelFailureEndpoint = properties.get("CamelFailureEndpoint");
            Object camelExceptionCaught = properties.get("CamelExceptionCaught");
 
-           LOGGER.info("camelFailureEndpoint:"+camelFailureEndpoint);
-           LOGGER.info("Exception:"+camelExceptionCaught);
+           LOGGER.info("--cause--:" + cause.toString());
+
     }
 
 
