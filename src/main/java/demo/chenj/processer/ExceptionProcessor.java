@@ -9,10 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.net.ConnectException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 public class ExceptionProcessor implements Processor {
 
@@ -22,8 +19,14 @@ public class ExceptionProcessor implements Processor {
 
        @Override
     public void process(Exchange exchange) throws Exception {
-//        exchange.getContext().getEndpoints();
-        LOGGER.info("Exception:"+exchange.getException());
+             Map<String, Object> properties = exchange.getProperties();
+           Exception cause = exchange.getProperty(Exchange.EXCEPTION_CAUGHT, Exception.class);
+
+           Object camelFailureEndpoint = properties.get("CamelFailureEndpoint");
+           Object camelExceptionCaught = properties.get("CamelExceptionCaught");
+
+           LOGGER.info("camelFailureEndpoint:"+camelFailureEndpoint);
+           LOGGER.info("Exception:"+camelExceptionCaught);
     }
 
 

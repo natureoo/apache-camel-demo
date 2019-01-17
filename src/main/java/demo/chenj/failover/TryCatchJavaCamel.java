@@ -48,7 +48,7 @@ public class TryCatchJavaCamel extends RouteBuilder {
                 .setHeader(Exchange.CONTENT_TYPE, constant("application/json"))
                 .loadBalance().failover()
                 .doTry()
-                .to("http://localhost:8081/camel/post?bridgeEndpoint=true")
+                .to("http4://localhost:8081/camel/post?bridgeEndpoint=true")
                 .doCatch(IOException.class).process(new Processor() {
                     @Override
                     public void process(Exchange exchange) throws Exception {
@@ -59,7 +59,7 @@ public class TryCatchJavaCamel extends RouteBuilder {
                     }
                 })
                 .doTry()
-                .to("http://localhost:8082/camel/post?bridgeEndpoint=true")
+                .to("http4://localhost:8082/camel/post?bridgeEndpoint=true")
                 .doCatch(IOException.class).process(new Processor() {
                     @Override
                     public void process(Exchange exchange) throws Exception {

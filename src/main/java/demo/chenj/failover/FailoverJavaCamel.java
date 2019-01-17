@@ -34,8 +34,8 @@ public class FailoverJavaCamel extends RouteBuilder {
     @Override
     public void configure() throws Exception {
         List<String> list = new ArrayList<String>();
-        list.add("http://localhost:8081/camel/post?bridgeEndpoint=true");
-        list.add("http://localhost:8082/camel/post?bridgeEndpoint=true");
+        list.add("http4://localhost:8081/camel/post?bridgeEndpoint=true");
+        list.add("http4://localhost:8082/camel/post?bridgeEndpoint=true");
         errorHandler(defaultErrorHandler()  .onExceptionOccurred(new ExceptionProcessor()));
 
 
